@@ -64,7 +64,7 @@ extension Device {
         let device = Self.deviceFromIdentifier(identifier)
         
         if case Default.simulator = device,
-           let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
+           let simulatorModelIdentifier = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] {
             return Self.deviceFromIdentifier(simulatorModelIdentifier)
         }
         
